@@ -58,6 +58,7 @@ export class Library {
     });
   }
 
+
   sortBooksByAuthor() {
     const sortedBooks = this.#books.sort((a, b) => {
       const nameA = a.authorLastName.toUpperCase(); // ignore upper and lowercase
@@ -152,6 +153,7 @@ export class Library {
 
     el.appendChild(content);
     el.appendChild(deleteBtn);
+    
 
     return el;
   }
@@ -237,7 +239,7 @@ export class Library {
     const container = document.querySelector(`.readersList`);
     container.innerHTML = "";
 
-    const sortedReaders = this.sortReadersByLastName()
+    const sortedReaders = this.sortReadersByLastName();
 
     sortedReaders.forEach((el, index) => {
       const listElement = this.listReaderDOMElement(
@@ -249,6 +251,8 @@ export class Library {
         ),
         el
       );
+
+      listElement.classList.add(`${el.firstName}${el.lastName}`)
       container.appendChild(listElement);
       //el.displayBooks(container);
       this.renderReadersBookList(el.books, container, el);

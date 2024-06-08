@@ -31,6 +31,11 @@ export class ReaderForm {
     const last_name = this.#userSurnameInput.value;
 
     console.log(this.#library.getReaderFromLibrary(first_name, last_name))
+     const findedReaderDOMElement = document.querySelectorAll(
+       `${first_name}${last_name}`
+    );
+    
+    findedReaderDOMElement.classList.add();
 
     this.#userNameInput.value = "";
     this.#userSurnameInput.value = "";
