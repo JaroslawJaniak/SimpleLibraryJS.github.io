@@ -11,7 +11,7 @@ export class ReaderForm {
     this.#library = library;
 
     this.#addBtn.addEventListener("click", () => this.#addUser());
-    this.#findBtn.addEventListener("click", () => this.#findUser());
+    this.#findBtn.addEventListener("click", (event) => this.#findUser(event));
   }
 
   #addUser() {
@@ -26,16 +26,17 @@ export class ReaderForm {
     this.#userSurnameInput.value = "";
   }
 
-  #findUser() {
+  #findUser(event) {
+     event.preventDefault();
     const first_name = this.#userNameInput.value;
     const last_name = this.#userSurnameInput.value;
 
-    console.log(this.#library.getReaderFromLibrary(first_name, last_name))
-     const findedReaderDOMElement = document.querySelectorAll(
-       `${first_name}${last_name}`
-    );
-    
-    findedReaderDOMElement.classList.add();
+    //console.log(this.#library.getReaderFromLibrary(first_name, last_name));
+    const findedReaderDOMElement = document.querySelector(`.${last_name}`);
+
+    console.log(findedReaderDOMElement);
+
+    findedReaderDOMElement.classList.add(`readerFinded`)
 
     this.#userNameInput.value = "";
     this.#userSurnameInput.value = "";

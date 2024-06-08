@@ -252,7 +252,8 @@ export class Library {
         el
       );
 
-      listElement.classList.add(`${el.firstName}${el.lastName}`)
+      console.log(`${el.firstName}${el.lastName}`);
+      listElement.classList.add(`${el.lastName}`);
       container.appendChild(listElement);
       //el.displayBooks(container);
       this.renderReadersBookList(el.books, container, el);
