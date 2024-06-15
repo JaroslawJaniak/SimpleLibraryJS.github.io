@@ -27,17 +27,13 @@ export class ReaderForm {
   }
 
   #findUser(event) {
-     event.preventDefault();
-    const first_name = this.#userNameInput.value;
+    event.preventDefault();
+
+    const first_name = this.#userSurnameInput.value;
     const last_name = this.#userSurnameInput.value;
 
-    //console.log(this.#library.getReaderFromLibrary(first_name, last_name));
-    const findedReaderDOMElement = document.querySelector(`.${last_name}`);
-
-    console.log(findedReaderDOMElement);
-
-    findedReaderDOMElement.classList.add(`readerFinded`)
-
+    this.#library.findReaderInLibrary(first_name, last_name);
+    
     this.#userNameInput.value = "";
     this.#userSurnameInput.value = "";
   }

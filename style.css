@@ -32,11 +32,11 @@ body {
   margin: 4px;
   margin-left: 24px;
   border-radius: 4px;
-  background-color: rgb(131, 192, 131);
+  background-color: rgb(236, 92, 92);
   font-weight: 500;
 }
 
- .available {
+.available {
   width: 80%;
 
   padding: 8px;
@@ -44,7 +44,8 @@ body {
   margin: 4px;
   margin-left: 24px;
   border-radius: 4px;
-  background-color: rgb(236, 92, 92);
+  
+  background-color: rgb(131, 192, 131);
   font-weight: 500;
 }
 
@@ -73,10 +74,14 @@ body {
   width: 25%;
   padding: 8px;
   padding-left: 48px;
-
   margin: 4px;
   margin-left: 24px;
   border-radius: 4px;
+  background: linear-gradient(
+    to right,
+    rgb(248, 161, 0) 0%,
+    rgb(255, 255, 255) 100%
+  );
 }
 
 .readersList {
@@ -95,12 +100,11 @@ body {
 }
 
 .readerFinded {
-  margin-left: 24px;
-  padding-left: 10px;
+  
   border-radius: 5px;
   background: linear-gradient(
     to right,
-     rgb(236, 92, 92) 0%,
+    rgb(248, 0, 0) 0%,
     rgb(255, 255, 255) 100%
   );
 }

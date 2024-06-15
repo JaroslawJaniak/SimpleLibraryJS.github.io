@@ -45,6 +45,10 @@ export class Library {
     });
   }
 
+  findReaderInLibrary(firstName, lastName) {
+    
+  }
+
   findReaderWithBook(book) {
     this.#readers.forEach((reader) => {
       reader.books.forEach((readerBook) => {
@@ -57,7 +61,6 @@ export class Library {
       });
     });
   }
-
 
   sortBooksByAuthor() {
     const sortedBooks = this.#books.sort((a, b) => {
@@ -153,7 +156,6 @@ export class Library {
 
     el.appendChild(content);
     el.appendChild(deleteBtn);
-    
 
     return el;
   }
@@ -246,7 +248,7 @@ export class Library {
         createDOMElement(
           `div`,
           `${el.readerInfo}`,
-          "reader divHeader",
+          `reader ${el.firstName} ${el.lastName}`,
           `reader${index}`
         ),
         el
@@ -255,9 +257,8 @@ export class Library {
       console.log(`${el.firstName}${el.lastName}`);
       listElement.classList.add(`${el.lastName}`);
       container.appendChild(listElement);
-      //el.displayBooks(container);
+
       this.renderReadersBookList(el.books, container, el);
-      //el.renderR(container, this.listReaderBooksDOMElement);
     });
   }
 
@@ -313,38 +314,5 @@ export class Library {
         );
       }
     });
-  }
-
-  //-----------------------------------------------------------------------------
-
-  displayAvailableBooks() {
-    createDOMElement(`displayAvailableBooks() from Library():`, "divHeader");
-    for (let i = 0; i < this.#books.length; i++) {
-      if (this.#books[i].isAvailable) {
-        console.log(this.#books[i]);
-
-        createDOMElement(`${this.#books[i].displayBookInfo()}`, "available");
-      }
-    }
-  }
-
-  displayNotAvailableBooks() {
-    createDOMElement(`displayNotAvailableBooks() from Library():`, "divHeader");
-    for (let i = 0; i < this.#books.length; i++) {
-      if (!this.#books[i].isAvailable) {
-        console.log(this.#books[i]);
-
-        createDOMElement(`${this.#books[i].displayBookInfo()}`, "notAvailable");
-      }
-    }
-  }
-
-  //-----------------------------------------------------------------------------
-  displayReaders() {
-    createDOMElement(`div`, `displayReaders() from Library():`, "divHeader");
-    for (let i = 0; i < this.#readers.length; i++) {
-      createDOMElement(`div`, `${this.#readers[i].readerInfo}`, "reader");
-      this.#readers[i].displayBooks();
-    }
   }
 }
